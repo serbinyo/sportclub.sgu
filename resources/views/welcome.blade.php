@@ -23,7 +23,7 @@
 
             .full-height {
                 height: 100vh;
-            } 
+            }
 
             .flex-center {
                 align-items: center;
@@ -81,9 +81,7 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-<<<<<<< HEAD
 
-=======
                 @if (isset($coaches))
                     @foreach($coaches as $coach)
                         {{ $coach->id_тренер }}
@@ -94,7 +92,7 @@
 
                     @endforeach
                 @endif
->>>>>>> commit
+
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
