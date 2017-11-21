@@ -21,20 +21,19 @@
 			<main>
 
 				@include('common.errors')
-				
-				<div id="current-date"></div>
-				
+
+
 				@if($user)
 
-				<div class='login_form_container'>
+				<div class=''>
 				Пользователь: {{$user->fio}}
 				</div>
-				
+
 				@endif
-				
+
 				@yield('content')
-				<div class="wrap_result"></div>
-				
+
+
 			</main>
 		</div>
 		<footer>

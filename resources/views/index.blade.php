@@ -42,6 +42,7 @@
 			</tr>
 		</tbody>
 	</table>
+
 	<table class="enter_table">
 		<tbody>
 			<tr>
@@ -50,7 +51,7 @@
 
 				</td>
 				<td class="enter_buttons">
-					<div id="mybutton-coach"> Я тренер </div>
+					<div id="mybutton-instructor"> Я тренер </div>
 
 				</td>
 				<td class="enter_buttons">
@@ -59,73 +60,85 @@
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td class="enter_buttons">
 					<div class="login_form_container" id="login-client-container">
-						@if($user)
-							<form action='{{route('userAuthorize')}}' method='post'>
-								<input type='hidden' name='action' value='logout' >
-								Вход выполнен
-								<div class='enter_btn'>
-									<input type='submit' value='Выйти'>
+
+							{!! Form::open([''=>route('userAuthorize')])!!}
+							{!! Form::hidden('login-client') !!}
+							<div class="form-group">
+								{!! Form::label(null, 'Логин: ', ['class'=>'control-label']) !!}
+								<div class="form-element">
+									{!! Form::text('login', null, ['class'=>'inp']) !!}
 								</div>
-								{{ csrf_field() }}
-							</form>
-						@else
-							<form action='{{route('userAuthorize')}}' method='post'>
-								Логин: <input type='text' name='login'> <br>
-								Пароль: <input type='password' name='passwd'> <br>
-								<div class='enter_btn'>
-									<input type='submit' name='go' value='Вход'>
+								<div class="clr"></div>
+							</div>
+							<div class="form-group">
+								{!! Form::label(null, 'Пароль: ', ['class'=>'control-label']) !!}
+								<div class="form-element">
+									{!! Form::password('passwd', ['class'=>'inp']) !!}
 								</div>
-								{{ csrf_field() }}
-							</form>
-						@endif
+								<div class="clr"></div>
+							</div>
+							<div class="form-group">
+								{!! Form::submit('Войти', ['class'=>'form-btn']) !!}
+								<div class="clr"></div>
+							</div>
+							{!! Form::close() !!}
+
 					</div>
 				</td>
-				<td>
-					<div class="login_form_container"  id="login-coach-container">
-						@if($user)
-							<form action='{{route('userAuthorize')}}' method='post'>
-								<input type='hidden' name='action' value='logout' >
-								Вход выполнен
-								<div class='enter_btn'>
-									<input type='submit' value='Выйти'>
+				<td class="enter_buttons">
+					<div class="login_form_container"  id="login-instructor-container">
+
+							{!! Form::open([''=>route('userAuthorize')])!!}
+								{!! Form::hidden('login-instructor') !!}
+								<div class="form-group">
+									{!! Form::label(null, 'Логин: ', ['class'=>'control-label']) !!}
+									<div class="form-element">
+										{!! Form::text('login', null, ['class'=>'inp']) !!}
+									</div>
+									<div class="clr"></div>
 								</div>
-								{{ csrf_field() }}
-							</form>
-						@else
-							<form action='{{route('userAuthorize')}}' method='post'>
-								Логин: <input type='text' name='login'> <br>
-								Пароль: <input type='password' name='passwd'> <br>
-								<div class='enter_btn'>
-									<input type='submit' name='go' value='Вход'>
+								<div class="form-group">
+									{!! Form::label(null, 'Пароль: ', ['class'=>'control-label']) !!}
+									<div class="form-element">
+										{!! Form::password('passwd', ['class'=>'inp']) !!}
+									</div>
+									<div class="clr"></div>
 								</div>
-								{{ csrf_field() }}
-							</form>
-						@endif
+								<div class="form-group">
+										{!! Form::submit('Войти', ['class'=>'form-btn', 'style'=>'background: cornflowerblue']) !!}
+									<div class="clr"></div>
+								</div>
+							{!! Form::close() !!}
+
 					</div>
 				</td>
-				<td>
+				<td class="enter_buttons">
 					<div class="login_form_container"  id="login-admin-container">
-						@if($user)
-							<form action='{{route('userAuthorize')}}' method='post'>
-								<input type='hidden' name='action' value='logout' >
-								Вход выполнен
-								<div class='enter_btn'>
-									<input type='submit' value='Выйти'>
+
+							{!! Form::open([''=>route('userAuthorize')])!!}
+							{!! Form::hidden('login-admin') !!}
+							<div class="form-group">
+								{!! Form::label(null, 'Логин: ', ['class'=>'control-label']) !!}
+								<div class="form-element">
+									{!! Form::text('login', null, ['class'=>'inp']) !!}
 								</div>
-								{{ csrf_field() }}
-							</form>
-						@else
-							<form action='{{route('userAuthorize')}}' method='post'>
-								Логин: <input type='text' name='login'> <br>
-								Пароль: <input type='password' name='passwd'> <br>
-								<div class='enter_btn'>
-									<input type='submit' name='go' value='Вход'>
+								<div class="clr"></div>
+							</div>
+							<div class="form-group">
+								{!! Form::label(null, 'Пароль: ', ['class'=>'control-label']) !!}
+								<div class="form-element">
+									{!! Form::password('passwd', ['class'=>'inp']) !!}
 								</div>
-								{{ csrf_field() }}
-							</form>
-						@endif
+								<div class="clr"></div>
+							</div>
+							<div class="form-group">
+								{!! Form::submit('Войти', ['class'=>'form-btn', 'style'=>'background: #e18c8d']) !!}
+								<div class="clr"></div>
+							</div>
+							{!! Form::close() !!}
+
 					</div>
 				</td>
 			</tr>
