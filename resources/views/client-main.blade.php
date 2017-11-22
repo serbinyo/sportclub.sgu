@@ -3,7 +3,7 @@
 @section('content')
 
 <section>
-	@if($user)
+	@if($client)
 		<div class=''>
 			Клиент:
 		</div>

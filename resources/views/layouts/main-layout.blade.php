@@ -23,7 +23,7 @@
 				@include('common.errors')
 
 
-				@if($user)
+				@if($admin || $client || $instructor)
 
 				<div class=''>
 				Пользователь: {{$user->fio}}

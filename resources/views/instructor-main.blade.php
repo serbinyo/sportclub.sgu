@@ -3,7 +3,7 @@
 @section('content')
 
 <section>
-	@if($user)
+	@if($instructor)
 		<div class=''>
 			Тренер:
 		</div>

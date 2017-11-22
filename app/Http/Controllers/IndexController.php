@@ -7,7 +7,7 @@ class IndexController extends Controller
 {
     function index()
     {
-        return view('index', ['user'=>'']);
+        return view('index', ['admin'=>$this->admin,'client'=>$this->client,'instructor'=>$this->instructor]);
     }
 
     public function auth(Request $request)

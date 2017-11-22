@@ -3,7 +3,7 @@
 @section('content')
 
 <section>
-	@if($user)
+	@if($admin)
 		<div class=''>
 			Администратор:
 		</div>
