@@ -4,7 +4,9 @@
 
     <section>
         <div class="main_lable">
-            Клиентское приложение для работы с базой данных Спортивный клуб
+            <a href="/">
+                Клиентское приложение для работы с базой данных Спортивный клуб
+            </a>
         </div>
         <table class="ava_table">
             <tbody>
@@ -43,11 +45,11 @@
             </tbody>
         </table>
 
-        @if (!$admin && !$client && !$instructor)
+        @if (!$admin)
             <div class="enter_area">
 
                 <div class="enter_block">
-                    <div id="mybutton"> Войти в программу </div>
+                    <div id="mybutton"> Войти в программу</div>
 
                 </div>
 
@@ -57,16 +59,7 @@
 
                         {!! Form::open(['url'=>route('userAuthorize')])!!}
                         {!! Form::hidden('login') !!}
-                        <div class="form-group">
-                            {!! Form::radio('role','client', false, ['id'=>'rd_client']) !!}
-                            {!! Form::label('rd_client', 'Клиент ', ['class'=>'']) !!}
 
-                            {!! Form::radio('role','instructor', false, ['id'=>'rd_instructor']) !!}
-                            {!! Form::label('rd_instructor', 'Инструктор ', ['class'=>'']) !!}
-
-                            {!! Form::radio('role','admin', false, ['id'=>'rd_admin']) !!}
-                            {!! Form::label('rd_admin', 'Администратор ', ['class'=>'']) !!}
-                        </div>
                         <div class="form-group">
                             {!! Form::label(null, 'Логин: ', ['class'=>'control-label']) !!}
                             <div class="form-element">
@@ -92,21 +85,23 @@
             </div>
         @else
 
-            @if($client)
+
+
+            @if($admin)
 
                 <div class="enter_area">
                     <div class="hello_label">
-                        Клиент
-                        {{$client->фамилия }}
-                        {{$client->имя }}
-                        {{$client->отчество }}
+                        Администротор
+                        {{$admin->фамилия }}
+                        {{$admin->имя }}
+                        {{$admin->отчество }}
                     </div>
 
                     <table class="hello_table">
                         <tbody>
                         <tr>
                             <td>
-                                <a href="client-main.blade.php" class="enter_button">Продолжить</a>
+                                <a href="menu" class="enter_button">Продолжить</a>
                             </td>
                             <td>
                                 {!! Form::open(['url'=>route('userAuthorize')]) !!}
@@ -117,20 +112,7 @@
                         </tbody>
                     </table>
 
-
                 </div>
-
-            @endif
-
-            @if($instructor)
-
-                {{'Привет инструктор'}}
-
-            @endif
-
-            @if($admin)
-
-                {{'Привет админ'}}
 
             @endif
 
