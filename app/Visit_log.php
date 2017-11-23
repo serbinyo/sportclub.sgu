@@ -9,6 +9,6 @@ class Visit_log extends Model
 {
     public function show()
     {
-        return $visitlogs = DB::table('visit_logs')->paginate(25);
+        return $visitlogs = DB::table('visit_logs')->orderBy('дата')->paginate(25);
     }
 }

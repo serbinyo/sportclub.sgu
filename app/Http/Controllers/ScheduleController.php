@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Schedule;
 
 class ScheduleController extends Controller
 {
@@ -11,9 +12,10 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Schedule $scheduleModel)
     {
-        return view('schedule', ['admin' => $this->admin]);
+        $schedules = $scheduleModel->show();
+        return view('schedule', ['admin' => $this->admin, 'schedules' => $schedules]);
     }
 
     /**
