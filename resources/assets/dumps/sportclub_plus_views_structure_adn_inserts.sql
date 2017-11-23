@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: sportclub
 -- ------------------------------------------------------
--- Server version	5.6.34
+-- Server version	5.7.16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -177,13 +177,13 @@ INSERT INTO `instructors` VALUES (1,1,'Злобин','Иван','Андреев�
 UNLOCK TABLES;
 
 --
--- Table structure for table `occupation-gyms`
+-- Table structure for table `occupation_gyms`
 --
 
-DROP TABLE IF EXISTS `occupation-gyms`;
+DROP TABLE IF EXISTS `occupation_gyms`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `occupation-gyms` (
+CREATE TABLE `occupation_gyms` (
   `id` int(11) NOT NULL,
   `id_gym` int(11) NOT NULL,
   PRIMARY KEY (`id`,`id_gym`),
@@ -193,23 +193,23 @@ CREATE TABLE `occupation-gyms` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `occupation-gyms`
+-- Dumping data for table `occupation_gyms`
 --
 
-LOCK TABLES `occupation-gyms` WRITE;
-/*!40000 ALTER TABLE `occupation-gyms` DISABLE KEYS */;
-INSERT INTO `occupation-gyms` VALUES (1,1),(5,1),(9,1),(13,1),(14,1),(17,1),(18,1),(2,2),(6,2),(10,2),(15,2),(16,2),(3,3),(7,3),(11,3),(19,3),(20,3),(21,3),(25,3),(4,4),(8,4),(12,4),(24,4),(22,5),(23,5);
-/*!40000 ALTER TABLE `occupation-gyms` ENABLE KEYS */;
+LOCK TABLES `occupation_gyms` WRITE;
+/*!40000 ALTER TABLE `occupation_gyms` DISABLE KEYS */;
+INSERT INTO `occupation_gyms` VALUES (1,1),(5,1),(9,1),(13,1),(14,1),(17,1),(18,1),(2,2),(6,2),(10,2),(15,2),(16,2),(3,3),(7,3),(11,3),(19,3),(20,3),(21,3),(25,3),(4,4),(8,4),(12,4),(24,4),(22,5),(23,5);
+/*!40000 ALTER TABLE `occupation_gyms` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `occupation-instructors`
+-- Table structure for table `occupation_instructors`
 --
 
-DROP TABLE IF EXISTS `occupation-instructors`;
+DROP TABLE IF EXISTS `occupation_instructors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `occupation-instructors` (
+CREATE TABLE `occupation_instructors` (
   `id` int(11) NOT NULL,
   `id_instructor` int(11) NOT NULL,
   `id_sportsmanship` int(11) NOT NULL,
@@ -221,13 +221,13 @@ CREATE TABLE `occupation-instructors` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `occupation-instructors`
+-- Dumping data for table `occupation_instructors`
 --
 
-LOCK TABLES `occupation-instructors` WRITE;
-/*!40000 ALTER TABLE `occupation-instructors` DISABLE KEYS */;
-INSERT INTO `occupation-instructors` VALUES (1,2,1,'2017-11-15'),(2,1,1,'2017-11-16'),(3,9,4,'2017-11-17'),(4,3,1,'2017-11-18'),(5,8,3,'2017-11-19'),(6,5,2,'2017-11-20'),(7,4,2,'2017-11-21'),(8,7,3,'2017-11-22'),(9,6,2,'2017-11-23'),(10,8,3,'2017-11-24'),(11,11,1,'2017-11-25'),(12,10,4,'2017-11-26'),(13,1,1,'2017-12-01'),(14,4,2,'2017-12-01'),(15,7,3,'2017-12-01'),(16,9,4,'2017-12-01'),(17,2,1,'2017-12-02'),(18,5,2,'2017-12-02'),(19,8,3,'2017-12-02'),(20,10,4,'2017-12-02'),(21,3,1,'2017-12-03'),(22,6,2,'2017-12-03'),(23,7,3,'2017-12-03'),(24,9,4,'2017-12-03'),(25,1,1,'2017-12-04'),(26,10,4,'2017-12-04');
-/*!40000 ALTER TABLE `occupation-instructors` ENABLE KEYS */;
+LOCK TABLES `occupation_instructors` WRITE;
+/*!40000 ALTER TABLE `occupation_instructors` DISABLE KEYS */;
+INSERT INTO `occupation_instructors` VALUES (1,2,1,'2017-11-15'),(2,1,1,'2017-11-16'),(3,9,4,'2017-11-17'),(4,3,1,'2017-11-18'),(5,8,3,'2017-11-19'),(6,5,2,'2017-11-20'),(7,4,2,'2017-11-21'),(8,7,3,'2017-11-22'),(9,6,2,'2017-11-23'),(10,8,3,'2017-11-24'),(11,11,1,'2017-11-25'),(12,10,4,'2017-11-26'),(13,1,1,'2017-12-01'),(14,4,2,'2017-12-01'),(15,7,3,'2017-12-01'),(16,9,4,'2017-12-01'),(17,2,1,'2017-12-02'),(18,5,2,'2017-12-02'),(19,8,3,'2017-12-02'),(20,10,4,'2017-12-02'),(21,3,1,'2017-12-03'),(22,6,2,'2017-12-03'),(23,7,3,'2017-12-03'),(24,9,4,'2017-12-03'),(25,1,1,'2017-12-04'),(26,10,4,'2017-12-04');
+/*!40000 ALTER TABLE `occupation_instructors` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -296,13 +296,13 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Table structure for table `visitation-clients`
+-- Table structure for table `visitation_clients`
 --
 
-DROP TABLE IF EXISTS `visitation-clients`;
+DROP TABLE IF EXISTS `visitation_clients`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `visitation-clients` (
+CREATE TABLE `visitation_clients` (
   `id` int(11) NOT NULL,
   `id_client` int(11) NOT NULL,
   PRIMARY KEY (`id`,`id_client`),
@@ -312,39 +312,39 @@ CREATE TABLE `visitation-clients` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `visitation-clients`
+-- Dumping data for table `visitation_clients`
 --
 
-LOCK TABLES `visitation-clients` WRITE;
-/*!40000 ALTER TABLE `visitation-clients` DISABLE KEYS */;
-INSERT INTO `visitation-clients` VALUES (8,1),(11,1),(37,1),(7,2),(14,2),(38,2),(9,3),(20,3),(31,3),(5,4),(15,4),(34,4),(4,5),(25,5),(40,5),(6,6),(28,6),(2,7),(26,7),(1,8),(22,8),(3,9),(19,9),(10,10),(17,10),(16,11),(32,11),(21,12),(35,12),(18,13),(33,13),(27,14),(36,14),(23,15),(39,15),(29,16),(30,17),(24,18),(13,19),(12,20);
-/*!40000 ALTER TABLE `visitation-clients` ENABLE KEYS */;
+LOCK TABLES `visitation_clients` WRITE;
+/*!40000 ALTER TABLE `visitation_clients` DISABLE KEYS */;
+INSERT INTO `visitation_clients` VALUES (8,1),(11,1),(37,1),(7,2),(14,2),(38,2),(9,3),(20,3),(31,3),(5,4),(15,4),(34,4),(4,5),(25,5),(40,5),(6,6),(28,6),(2,7),(26,7),(1,8),(22,8),(3,9),(19,9),(10,10),(17,10),(16,11),(32,11),(21,12),(35,12),(18,13),(33,13),(27,14),(36,14),(23,15),(39,15),(29,16),(30,17),(24,18),(13,19),(12,20);
+/*!40000 ALTER TABLE `visitation_clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `visitation-gyms`
+-- Table structure for table `visitation_gyms`
 --
 
-DROP TABLE IF EXISTS `visitation-gyms`;
+DROP TABLE IF EXISTS `visitation_gyms`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `visitation-gyms` (
+CREATE TABLE `visitation_gyms` (
   `id` int(11) NOT NULL,
   `id_occupation` int(11) NOT NULL,
   `id_gym` int(11) NOT NULL,
   PRIMARY KEY (`id_occupation`,`id_gym`,`id`),
-  CONSTRAINT `fk1_vis-gyms1` FOREIGN KEY (`id_occupation`, `id_gym`) REFERENCES `occupation-gyms` (`id`, `id_gym`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk1_vis-gyms1` FOREIGN KEY (`id_occupation`, `id_gym`) REFERENCES `occupation_gyms` (`id`, `id_gym`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `visitation-gyms`
+-- Dumping data for table `visitation_gyms`
 --
 
-LOCK TABLES `visitation-gyms` WRITE;
-/*!40000 ALTER TABLE `visitation-gyms` DISABLE KEYS */;
-INSERT INTO `visitation-gyms` VALUES (1,1,1),(2,1,1),(3,1,1),(11,1,1),(25,1,1),(4,2,2),(22,2,2),(5,3,3),(6,3,3),(17,3,3),(21,3,3),(14,5,1),(27,5,1),(33,5,1),(39,5,1),(18,6,2),(24,6,2),(30,6,2),(36,6,2),(37,6,2),(8,7,3),(16,7,3),(35,7,3),(13,8,4),(26,8,4),(38,8,4),(9,9,1),(12,9,1),(15,9,1),(40,9,1),(7,10,2),(10,10,2),(19,11,3),(23,11,3),(29,11,3),(31,11,3),(20,12,4),(28,12,4),(32,12,4),(34,12,4);
-/*!40000 ALTER TABLE `visitation-gyms` ENABLE KEYS */;
+LOCK TABLES `visitation_gyms` WRITE;
+/*!40000 ALTER TABLE `visitation_gyms` DISABLE KEYS */;
+INSERT INTO `visitation_gyms` VALUES (1,1,1),(2,1,1),(3,1,1),(11,1,1),(25,1,1),(4,2,2),(22,2,2),(5,3,3),(6,3,3),(17,3,3),(21,3,3),(14,5,1),(27,5,1),(33,5,1),(39,5,1),(18,6,2),(24,6,2),(30,6,2),(36,6,2),(37,6,2),(8,7,3),(16,7,3),(35,7,3),(13,8,4),(26,8,4),(38,8,4),(9,9,1),(12,9,1),(15,9,1),(40,9,1),(7,10,2),(10,10,2),(19,11,3),(23,11,3),(29,11,3),(31,11,3),(20,12,4),(28,12,4),(32,12,4),(34,12,4);
+/*!40000 ALTER TABLE `visitation_gyms` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -360,7 +360,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `schedules` AS select `occupation-instructors`.`дата` AS `дата`,`sportsmanships`.`название` AS `спортвное_направление`,`gyms`.`название` AS `спортзал`,`gyms`.`улица` AS `спортзал_улица`,`gyms`.`дом` AS `спортзал_дом`,`instructors`.`фамилия` AS `фамилия_тренер`,`instructors`.`имя` AS `имя_тренер` from ((((`sportsmanships` join `instructors`) join `occupation-instructors`) join `occupation-gyms`) join `gyms`) where ((`sportsmanships`.`id` = `instructors`.`sportsmanship_id`) and (`instructors`.`id` = `occupation-instructors`.`id_instructor`) and (`occupation-instructors`.`id` = `occupation-gyms`.`id`) and (`occupation-gyms`.`id_gym` = `gyms`.`id`)) order by `occupation-instructors`.`дата` */;
+/*!50001 VIEW `schedules` AS select `occupation_instructors`.`дата` AS `дата`,`sportsmanships`.`название` AS `спортвное_направление`,`gyms`.`название` AS `спортзал`,`gyms`.`улица` AS `спортзал_улица`,`gyms`.`дом` AS `спортзал_дом`,`instructors`.`фамилия` AS `фамилия_тренер`,`instructors`.`имя` AS `имя_тренер` from ((((`sportsmanships` join `instructors`) join `occupation_instructors`) join `occupation_gyms`) join `gyms`) where ((`sportsmanships`.`id` = `instructors`.`sportsmanship_id`) and (`instructors`.`id` = `occupation_instructors`.`id_instructor`) and (`occupation_instructors`.`id` = `occupation_gyms`.`id`) and (`occupation_gyms`.`id_gym` = `gyms`.`id`)) order by `occupation_instructors`.`дата` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -378,7 +378,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `visit_logs` AS select `visitation-clients`.`id` AS `Посещение`,`clients`.`id` AS `номер_клиента`,`clients`.`фамилия` AS `фамилия`,`clients`.`имя` AS `имя`,`clients`.`отчество` AS `отчество`,`occupation-gyms`.`id` AS `номер_занятия`,`sportsmanships`.`название` AS `спортвное_направление`,`gyms`.`название` AS `спортзал`,`occupation-instructors`.`дата` AS `дата` from (((((((`visitation-clients` join `visitation-gyms`) join `clients`) join `occupation-gyms`) join `gyms`) join `occupation-instructors`) join `instructors`) join `sportsmanships`) where ((`clients`.`id` = `visitation-clients`.`id_client`) and (`visitation-clients`.`id` = `visitation-gyms`.`id`) and (`visitation-gyms`.`id_occupation` = `occupation-gyms`.`id`) and (`occupation-gyms`.`id_gym` = `gyms`.`id`) and (`occupation-gyms`.`id` = `occupation-instructors`.`id`) and (`occupation-instructors`.`id_instructor` = `instructors`.`id`) and (`instructors`.`sportsmanship_id` = `sportsmanships`.`id`)) order by `visitation-clients`.`id` */;
+/*!50001 VIEW `visit_logs` AS select `visitation_clients`.`id` AS `Посещение`,`clients`.`id` AS `номер_клиента`,`clients`.`фамилия` AS `фамилия`,`clients`.`имя` AS `имя`,`clients`.`отчество` AS `отчество`,`occupation_gyms`.`id` AS `номер_занятия`,`sportsmanships`.`название` AS `спортвное_направление`,`gyms`.`название` AS `спортзал`,`occupation_instructors`.`дата` AS `дата` from (((((((`visitation_clients` join `visitation_gyms`) join `clients`) join `occupation_gyms`) join `gyms`) join `occupation_instructors`) join `instructors`) join `sportsmanships`) where ((`clients`.`id` = `visitation_clients`.`id_client`) and (`visitation_clients`.`id` = `visitation_gyms`.`id`) and (`visitation_gyms`.`id_occupation` = `occupation_gyms`.`id`) and (`occupation_gyms`.`id_gym` = `gyms`.`id`) and (`occupation_gyms`.`id` = `occupation_instructors`.`id`) and (`occupation_instructors`.`id_instructor` = `instructors`.`id`) and (`instructors`.`sportsmanship_id` = `sportsmanships`.`id`)) order by `visitation_clients`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -392,4 +392,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-22 23:48:05
+-- Dump completed on 2017-11-23 18:37:45
