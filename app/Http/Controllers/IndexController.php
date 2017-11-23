@@ -17,11 +17,10 @@ class IndexController extends Controller
         $data = $request->all();
         if (array_key_exists('login', $data)) {
             $adminModel->login($request);
-            return redirect('/');
+            return redirect('menu');
         } else {
             session_destroy();
             return redirect('/');
         }
     }
-
 }

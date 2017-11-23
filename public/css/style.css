@@ -298,13 +298,8 @@ footer p {
   cursor: pointer;
 }
 
-
-
-
-
-
-
 .table-study {
+  margin: 20px 0 0;
   width: 100%;
   font-size: 14px;
   color: #000000;

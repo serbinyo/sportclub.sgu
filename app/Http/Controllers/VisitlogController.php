@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Visit_log;
 
 class VisitlogController extends Controller
 {
@@ -11,9 +12,10 @@ class VisitlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Visit_log $visitlogModel)
     {
-        return view('visitlog', ['admin' => $this->admin]);
+        $visitlogs = $visitlogModel->show();
+        return view('visitlog', ['admin' => $this->admin, 'visitlogs' => $visitlogs]);
     }
 
     /**
