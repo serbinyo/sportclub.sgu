@@ -35,16 +35,19 @@ class Administrator extends Model
 
     public function login($request)
     {
-        $request['passwd'] = md5($request['passwd']);
+        if(!empty($request['passwd']))
+        {
+            $request['passwd'] = md5($request['passwd']);
+        }
         $this->validate($request,
             [
                 'login'=>[
                     'required',
-                    'exists:users,login'
+                    'exists:administrators,login'
                 ],
                 'passwd'=>[
                     'required',
-                    'exists:users,password'
+                    'exists:administrators,pswd'
                 ]
             ],
             [
@@ -54,7 +57,7 @@ class Administrator extends Model
                 'passwd.exists'=>'Неверный пароль, попробуйте еще раз'
             ]);
         $data        = $request->all();
-        $_SESSION['login'] = htmlspecialchars(trim($data['login']));
-        $_SESSION['passwd'] = htmlspecialchars(trim($data['passwd']));
+        $_SESSION['login'] = $data['login'];
+        $_SESSION['passwd'] = $data['passwd'];
     }
 }

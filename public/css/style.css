@@ -104,71 +104,91 @@ footer p {
   padding: 5px 0 10px 0;
 }
 
-.enter_table{
+.enter_area{
   margin: 50px 0 0;
   width: 100%;
-}
-
-.enter_table td{
   text-align: center;
 }
 
-.enter_buttons {
-  width: 33%;
+.enter_block {
+  width: 50%;
+  margin: 0 auto;
   padding: 0 15px;
 }
 
-#mybutton-client {
-  font-weight: 700;
-  color: white;
+.hello_label {
+  width: 50%;
+  display: inline-block;
+  user-select: none;
+  outline: none;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: arial,sans-serif;
+  color: rgb(68,68,68);
   text-decoration: none;
   padding: 0.8em 1em calc(.8em + 3px);
-  border-radius: 3px;
-  background: #86e100;
-  -webkit-box-shadow: 0 -3px green inset;
-  box-shadow: 0 -3px green inset;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-#mybutton-client:hover {
-  background: green;
-  cursor:pointer;
-}
-
-#mybutton-instructor {
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-  padding: 0.8em 1em calc(.8em + 3px);
-  border-radius: 3px;
-  background: cornflowerblue;
+  border-radius: 2px;
+  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
   -webkit-box-shadow: 0 -3px royalblue inset;
   box-shadow: 0 -3px royalblue inset;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-#mybutton-instructor:hover {
-  background: royalblue;
-  cursor:pointer;
+.hello_table
+{
+  width: 50%;
+  margin: 10px auto;
 }
 
-#mybutton-admin {
-  font-weight: 700;
-  color: white;
+.hello_table td
+{
+  width: 50%;
+  margin: 10px auto;
+
+}
+
+.enter_button
+{
+  display: inline-block;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: rgb(68,68,68);
+  text-decoration: none;
+  user-select: none;
+  padding: 10px 10px;
+  width: 150px;
+  outline: none;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 2px;
+  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+  transition: all .218s ease 0s;
+}
+.enter_button:hover {
+  color: rgb(24,24,24);
+  border: 1px solid rgb(198,198,198);
+  background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+#mybutton {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: arial,sans-serif;
+  color: rgb(68,68,68);
   text-decoration: none;
   padding: 0.8em 1em calc(.8em + 3px);
-  border-radius: 3px;
-  background: #e18c8d;
-  -webkit-box-shadow: 0 -3px #e13939 inset;
-  box-shadow: 0 -3px #e13939 inset;
+  border-radius: 2px;
+  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+  -webkit-box-shadow: 0 -3px royalblue inset;
+  box-shadow: 0 -3px royalblue inset;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-#mybutton-admin:hover {
-  background: #e13939;
+#mybutton:hover {
+  background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
   cursor:pointer;
 }
 
@@ -366,23 +386,6 @@ a.stad_photo:hover img {
 .blurred {
   -webkit-filter: blur(7px);
   -webkit-transition: all 2s;
-}
-
-#mybutton {
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-  padding: 0.8em 1em calc(.8em + 3px);
-  border-radius: 3px;
-  background: cornflowerblue;
-  -webkit-box-shadow: 0 -3px royalblue inset;
-          box-shadow: 0 -3px royalblue inset;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-#mybutton:hover {
-  background: royalblue;
 }
 
 .blog_addcontainer {

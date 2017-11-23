@@ -1,7 +1,5 @@
 jQuery(document).ready(function($) {
-    addJQueryHandler('#mybutton-client','#login-client-container', $);
-    addJQueryHandler('#mybutton-instructor','#login-instructor-container', $);
-    addJQueryHandler('#mybutton-admin','#login-admin-container', $);
+    addJQueryHandler('#mybutton','#login-container', $);
 });
 function addJQueryHandler(JQBtnOpenId, JQeditBoxId, $)
 {

@@ -22,17 +22,7 @@
 
 				@include('common.errors')
 
-
-				@if($admin || $client || $instructor)
-
-				<div class=''>
-				Пользователь: {{$user->fio}}
-				</div>
-
-				@endif
-
 				@yield('content')
-
 
 			</main>
 		</div>

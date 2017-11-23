@@ -32,4 +32,31 @@ class Client extends Model
         }
     }
 
+    public function login($request)
+    {
+        if(!empty($request['passwd']))
+        {
+            $request['passwd'] = md5($request['passwd']);
+        }
+        $this->validate($request,
+            [
+                'login'=>[
+                    'required',
+                    'exists:clients,login'
+                ],
+                'passwd'=>[
+                    'required',
+                    'exists:clients,pswd'
+                ]
+            ],
+            [
+                'login.required'=>'Необходимо указать логин',
+                'login.exists'=>'Неверный логин, попробуйте еще раз',
+                'passwd.required'=>'Необходимо указать пароль',
+                'passwd.exists'=>'Неверный пароль, попробуйте еще раз'
+            ]);
+        $data        = $request->all();
+        $_SESSION['login'] = $data['login'];
+        $_SESSION['passwd'] = $data['passwd'];
+    }
 }

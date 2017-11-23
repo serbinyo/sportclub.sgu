@@ -2,149 +2,139 @@
 
 @section('content')
 
-<section>
-	<div class="main_lable">
-		Клиентское приложение для работы с базой данных Спортивный клуб
-	</div>
-	<table class="ava_table">
-		<tbody>
-			<tr>
-				<td>
-					<img src="/public/img/ava.png"  width="250" alt=""/>
-				</td>
-				<td class="lr_column">
-					<h3>
-						Теория баз данных <br><br>
-						Сербин Александр Александрович
-					</h3>
-					<div class="to_right">
-					<p>
-						<strong>
-							группа: ИС/б-41-з
-						</strong>
-					</p>
-					<p>
-						Лабораторная работа №4
-					</p>
-					<p>
-						Создание программного приложения для<br>
-						работы с базой данных.<br> Тестирование
-						базы данных
-					</p>
-					<p>
-						Вариант 18
-					</p>
-					</div>
-					<p>
-						Ноябрь 2017
-					</p>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+    <section>
+        <div class="main_lable">
+            Клиентское приложение для работы с базой данных Спортивный клуб
+        </div>
+        <table class="ava_table">
+            <tbody>
+            <tr>
+                <td>
+                    <img src="/public/img/ava.png" width="250" alt=""/>
+                </td>
+                <td class="lr_column">
+                    <h3>
+                        Теория баз данных <br><br>
+                        Сербин Александр Александрович
+                    </h3>
+                    <div class="to_right">
+                        <p>
+                            <strong>
+                                группа: ИС/б-41-з
+                            </strong>
+                        </p>
+                        <p>
+                            Лабораторная работа №4
+                        </p>
+                        <p>
+                            Создание программного приложения для<br>
+                            работы с базой данных.<br> Тестирование
+                            базы данных
+                        </p>
+                        <p>
+                            Вариант 18
+                        </p>
+                    </div>
+                    <p>
+                        Ноябрь 2017
+                    </p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
-	<table class="enter_table">
-		<tbody>
-			<tr>
-				<td class="enter_buttons">
-					<div id="mybutton-client"> Я клиент </div>
+        @if (!$admin && !$client && !$instructor)
+            <div class="enter_area">
 
-				</td>
-				<td class="enter_buttons">
-					<div id="mybutton-instructor"> Я тренер </div>
+                <div class="enter_block">
+                    <div id="mybutton"> Войти в программу </div>
 
-				</td>
-				<td class="enter_buttons">
-					<div id="mybutton-admin"> Я администратор </div>
+                </div>
 
-				</td>
-			</tr>
-			<tr>
-				<td class="enter_buttons">
-					<div class="login_form_container" id="login-client-container">
 
-							{!! Form::open([''=>route('userAuthorize')])!!}
-							{!! Form::hidden('login-client') !!}
-							<div class="form-group">
-								{!! Form::label(null, 'Логин: ', ['class'=>'control-label']) !!}
-								<div class="form-element">
-									{!! Form::text('login', null, ['class'=>'inp']) !!}
-								</div>
-								<div class="clr"></div>
-							</div>
-							<div class="form-group">
-								{!! Form::label(null, 'Пароль: ', ['class'=>'control-label']) !!}
-								<div class="form-element">
-									{!! Form::password('passwd', ['class'=>'inp']) !!}
-								</div>
-								<div class="clr"></div>
-							</div>
-							<div class="form-group">
-								{!! Form::submit('Войти', ['class'=>'form-btn']) !!}
-								<div class="clr"></div>
-							</div>
-							{!! Form::close() !!}
+                <div class="enter_block">
+                    <div class="login_form_container" id="login-container">
 
-					</div>
-				</td>
-				<td class="enter_buttons">
-					<div class="login_form_container"  id="login-instructor-container">
+                        {!! Form::open(['url'=>route('userAuthorize')])!!}
+                        {!! Form::hidden('login') !!}
+                        <div class="form-group">
+                            {!! Form::radio('role','client', false, ['id'=>'rd_client']) !!}
+                            {!! Form::label('rd_client', 'Клиент ', ['class'=>'']) !!}
 
-							{!! Form::open([''=>route('userAuthorize')])!!}
-								{!! Form::hidden('login-instructor') !!}
-								<div class="form-group">
-									{!! Form::label(null, 'Логин: ', ['class'=>'control-label']) !!}
-									<div class="form-element">
-										{!! Form::text('login', null, ['class'=>'inp']) !!}
-									</div>
-									<div class="clr"></div>
-								</div>
-								<div class="form-group">
-									{!! Form::label(null, 'Пароль: ', ['class'=>'control-label']) !!}
-									<div class="form-element">
-										{!! Form::password('passwd', ['class'=>'inp']) !!}
-									</div>
-									<div class="clr"></div>
-								</div>
-								<div class="form-group">
-										{!! Form::submit('Войти', ['class'=>'form-btn', 'style'=>'background: cornflowerblue']) !!}
-									<div class="clr"></div>
-								</div>
-							{!! Form::close() !!}
+                            {!! Form::radio('role','instructor', false, ['id'=>'rd_instructor']) !!}
+                            {!! Form::label('rd_instructor', 'Инструктор ', ['class'=>'']) !!}
 
-					</div>
-				</td>
-				<td class="enter_buttons">
-					<div class="login_form_container"  id="login-admin-container">
+                            {!! Form::radio('role','admin', false, ['id'=>'rd_admin']) !!}
+                            {!! Form::label('rd_admin', 'Администратор ', ['class'=>'']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label(null, 'Логин: ', ['class'=>'control-label']) !!}
+                            <div class="form-element">
+                                {!! Form::text('login', null, ['class'=>'inp']) !!}
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label(null, 'Пароль: ', ['class'=>'control-label']) !!}
+                            <div class="form-element">
+                                {!! Form::password('passwd', ['class'=>'inp']) !!}
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                        <div class="form-group">
+                            {!! Form::submit('Войти', ['class'=>'enter_button', 'name'=>'do-login']) !!}
+                            <div class="clr"></div>
+                        </div>
+                        {!! Form::close() !!}
 
-							{!! Form::open([''=>route('userAuthorize')])!!}
-							{!! Form::hidden('login-admin') !!}
-							<div class="form-group">
-								{!! Form::label(null, 'Логин: ', ['class'=>'control-label']) !!}
-								<div class="form-element">
-									{!! Form::text('login', null, ['class'=>'inp']) !!}
-								</div>
-								<div class="clr"></div>
-							</div>
-							<div class="form-group">
-								{!! Form::label(null, 'Пароль: ', ['class'=>'control-label']) !!}
-								<div class="form-element">
-									{!! Form::password('passwd', ['class'=>'inp']) !!}
-								</div>
-								<div class="clr"></div>
-							</div>
-							<div class="form-group">
-								{!! Form::submit('Войти', ['class'=>'form-btn', 'style'=>'background: #e18c8d']) !!}
-								<div class="clr"></div>
-							</div>
-							{!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+        @else
 
-					</div>
-				</td>
-			</tr>
+            @if($client)
 
-		</tbody>
-	</table>
-</section>
+                <div class="enter_area">
+                    <div class="hello_label">
+                        Клиент
+                        {{$client->фамилия }}
+                        {{$client->имя }}
+                        {{$client->отчество }}
+                    </div>
+
+                    <table class="hello_table">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <a href="client-main.blade.php" class="enter_button">Продолжить</a>
+                            </td>
+                            <td>
+                                {!! Form::open(['url'=>route('userAuthorize')]) !!}
+                                {!! Form::submit('   Выйти  ',['class'=>'enter_button']) !!}
+                                {!! Form::close() !!}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+            @endif
+
+            @if($instructor)
+
+                {{'Привет инструктор'}}
+
+            @endif
+
+            @if($admin)
+
+                {{'Привет админ'}}
+
+            @endif
+
+        @endif
+    </section>
 
 @endsection
