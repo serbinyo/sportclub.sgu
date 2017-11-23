@@ -4,30 +4,30 @@ CREATE
     SQL SECURITY DEFINER
 VIEW `visit_logs` AS
     SELECT 
-        `visitation-clients`.`id` AS `Посещение`,
+        `visitation_clients`.`id` AS `Посещение`,
         `clients`.`id` AS `номер_клиента`,
         `clients`.`фамилия` AS `фамилия`,
         `clients`.`имя` AS `имя`,
         `clients`.`отчество` AS `отчество`,
-        `occupation-gyms`.`id` AS `номер_занятия`,
+        `occupation_gyms`.`id` AS `номер_занятия`,
         `sportsmanships`.`название` AS `спортвное_направление`,
         `gyms`.`название` AS `спортзал`,
-        `occupation-instructors`.`дата` AS `дата`
+        `occupation_instructors`.`дата` AS `дата`
     FROM
-        (((((((`visitation-clients`
-        JOIN `visitation-gyms`)
+        (((((((`visitation_clients`
+        JOIN `visitation_gyms`)
         JOIN `clients`)
-        JOIN `occupation-gyms`)
+        JOIN `occupation_gyms`)
         JOIN `gyms`)
-        JOIN `occupation-instructors`)
+        JOIN `occupation_instructors`)
         JOIN `instructors`)
         JOIN `sportsmanships`)
     WHERE
-        ((`clients`.`id` = `visitation-clients`.`id_client`)
-            AND (`visitation-clients`.`id` = `visitation-gyms`.`id`)
-            AND (`visitation-gyms`.`id_occupation` = `occupation-gyms`.`id`)
-            AND (`occupation-gyms`.`id_gym` = `gyms`.`id`)
-            AND (`occupation-gyms`.`id` = `occupation-instructors`.`id`)
-            AND (`occupation-instructors`.`id_instructor` = `instructors`.`id`)
+        ((`clients`.`id` = `visitation_clients`.`id_client`)
+            AND (`visitation_clients`.`id` = `visitation_gyms`.`id`)
+            AND (`visitation_gyms`.`id_occupation` = `occupation_gyms`.`id`)
+            AND (`occupation_gyms`.`id_gym` = `gyms`.`id`)
+            AND (`occupation_gyms`.`id` = `occupation_instructors`.`id`)
+            AND (`occupation_instructors`.`id_instructor` = `instructors`.`id`)
             AND (`instructors`.`sportsmanship_id` = `sportsmanships`.`id`))
-    ORDER BY `visitation-clients`.`id`
+    ORDER BY `visitation_clients`.`id`

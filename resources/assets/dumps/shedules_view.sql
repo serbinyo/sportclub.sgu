@@ -4,7 +4,7 @@ CREATE
     SQL SECURITY DEFINER
 VIEW `schedules` AS
     SELECT 
-        `occupation-instructors`.`дата` AS `дата`,
+        `occupation_instructors`.`дата` AS `дата`,
         `sportsmanships`.`название` AS `спортвное_направление`,
         `gyms`.`название` AS `спортзал`,
         `gyms`.`улица` AS `спортзал_улица`,
@@ -14,12 +14,12 @@ VIEW `schedules` AS
     FROM
         ((((`sportsmanships`
         JOIN `instructors`)
-        JOIN `occupation-instructors`)
-        JOIN `occupation-gyms`)
+        JOIN `occupation_instructors`)
+        JOIN `occupation_gyms`)
         JOIN `gyms`)
     WHERE
         ((`sportsmanships`.`id` = `instructors`.`sportsmanship_id`)
-            AND (`instructors`.`id` = `occupation-instructors`.`id_instructor`)
-            AND (`occupation-instructors`.`id` = `occupation-gyms`.`id`)
-            AND (`occupation-gyms`.`id_gym` = `gyms`.`id`))
-    ORDER BY `occupation-instructors`.`дата`
+            AND (`instructors`.`id` = `occupation_instructors`.`id_instructor`)
+            AND (`occupation_instructors`.`id` = `occupation_gyms`.`id`)
+            AND (`occupation_gyms`.`id_gym` = `gyms`.`id`))
+    ORDER BY `occupation_instructors`.`дата`
