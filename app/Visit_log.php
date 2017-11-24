@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Visit_log extends Model
 {
-    public function show()
+    public function showAll()
     {
         return $visitlogs = DB::table('visit_logs')->orderBy('дата')->paginate(25);
     }

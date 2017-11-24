@@ -14,7 +14,7 @@ class VisitlogController extends Controller
      */
     public function index(Visit_log $visitlogModel)
     {
-        $visitlogs = $visitlogModel->show();
+        $visitlogs = $visitlogModel->showAll();
         return view('visitlog', ['admin' => $this->admin, 'visitlogs' => $visitlogs]);
     }
 

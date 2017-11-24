@@ -6,10 +6,10 @@
         @if($admin)
             @include('common.menu_label')
 
-            <table class="table-study">
+            <table class="table-view">
                 <tr class="topic">
                     <td>Дата</td>
-                    <td>Номер клиента</td>
+                    <td>№ клиента</td>
                     <td>ФИО</td>
                     <td>Спортивное направление</td>
                     <td>Спортзал</td>

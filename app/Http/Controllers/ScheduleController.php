@@ -14,7 +14,7 @@ class ScheduleController extends Controller
      */
     public function index(Schedule $scheduleModel)
     {
-        $schedules = $scheduleModel->show();
+        $schedules = $scheduleModel->showAll();
         return view('schedule', ['admin' => $this->admin, 'schedules' => $schedules]);
     }
 

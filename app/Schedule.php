@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Schedule extends Model
 {
-    public function show()
+    public function showAll()
     {
         return $schedules = DB::table('schedules')->paginate(20);
     }

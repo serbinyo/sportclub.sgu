@@ -6,7 +6,7 @@
         @if($admin)
             @include('common.menu_label')
 
-            <table class="table-study">
+            <table class="table-view">
                 <tr class="topic">
                     <td>Дата</td>
                     <td>Спортивное направление</td>

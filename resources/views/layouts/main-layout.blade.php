@@ -23,6 +23,7 @@
 				@include('common.errors')
 
 				@yield('content')
+				<div class="wrap_result"></div>
 
 			</main>
 		</div>
