@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+    addJQueryHandler('#btn_open_add_entity', '#hiding_block_add_entity', $);
     var entityId_array = indexator($);
 
 
@@ -32,7 +33,6 @@ jQuery(document).ready(function ($) {
                                 $('.entity_update_link').off();
                                 $(entityId_array[entityId_array.length - 1]).remove();
                                 entityId_array = indexator($);
-
 
 
                             });
@@ -83,10 +83,15 @@ function editAjax(submitId, editFormId, editBoxId, $) {
                         else if (html.success) {
                             $('.wrap_result').css('color', 'blue').append('<br/><strong>Отредактировано успешно</strong>').delay(900).fadeOut(500, function () {
                                 $(editBoxId).css('display', 'none');
-                                $('#col1' + html['entity']['entity_id']).text(
+                                $('#col1' + html['entity']['entity_id']).html(
+                                    'Сотрудник № '+
+                                    html['entity']['entity_id'] + ' ' +
+                                    "<span style='font-weight: bold;'>" + ' ' +
                                     html['entity']['lastname'] + ' ' +
                                     html['entity']['firstname'] + ' ' +
-                                    html['entity']['middlename']
+                                    html['entity']['middlename'] + ' ' +
+                                    "</span>"
+
                                 );
                                 $('#col2' + html['entity']['entity_id']).text(
                                     'СНИЛС: ' +
@@ -119,26 +124,31 @@ function editAjax(submitId, editFormId, editBoxId, $) {
 }
 
 function indexator($) {
-    var editbox = document.getElementsByClassName('entity_editcontainer'),
-        addbtn = document.getElementsByClassName('entity_update_link'),
+    var hiding_block = document.getElementsByClassName('hiding_block'),
+        btn_open = document.getElementsByClassName('btn_open'),
         editform = document.getElementsByClassName('edit_form'),
         submit = document.getElementsByClassName('edit_submit'),
         entity_cont = document.getElementsByClassName('entity_container'),
+        card_title_open = document.getElementsByClassName('card_title_open'),
+        card_body_block = document.getElementsByClassName('card_body_block'),
         editBoxId = [],
         editFormId = [],
         entityId = [],
         submitId = [],
-        btnOpenId = [];
+        btnOpenId = [],
+        card_title_openId = [],
+        card_body_blockId = [];
 
-    for (i = 0; i < addbtn.length; i++) {
+    for (i = 0; i < btn_open.length; i++) {
+
         var entityId_tmp = entity_cont[i].id;
         entityId[i] = "#" + entityId_tmp;
 
-        var btnOpenId_tmp = addbtn[i].id;
-        btnOpenId[i] = '#' + btnOpenId_tmp;
+        var btn_open_tmp = btn_open[i].id;
+        btnOpenId[i] = '#' + btn_open_tmp;
 
-        var editboxId_tmp = editbox[i].id;
-        editBoxId[i] = "#" + editboxId_tmp;
+        var hiding_block_tmp = hiding_block[i].id;
+        editBoxId[i] = "#" + hiding_block_tmp;
 
         var editformId_tmp = editform[i].id;
         editFormId[i] = "#" + editformId_tmp;
@@ -146,7 +156,14 @@ function indexator($) {
         var submitId_tmp = submit[i].id;
         submitId[i] = "#" + submitId_tmp;
 
+        var card_title_open_tmp = card_title_open[i].id;
+        card_title_openId[i] = "#" + card_title_open_tmp;
+
+        var card_body_block_tmp = card_body_block[i].id;
+        card_body_blockId[i] = "#" + card_body_block_tmp;
+
         addJQueryHandler(btnOpenId[i], editBoxId[i], $);
+        addJQueryHandler(card_title_openId[i], card_body_blockId[i], $);
         editAjax(submitId[i], editFormId[i], editBoxId[i], $);
     }
 

@@ -47,16 +47,11 @@
 
         @if (!$admin)
             <div class="enter_area">
-
                 <div class="enter_block">
                     <div id="mybutton"> Войти в программу</div>
-
                 </div>
-
-
                 <div class="enter_block">
                     <div class="login_form_container" id="login-container">
-
                         {!! Form::open(['url'=>route('userAuthorize')])!!}
                         {!! Form::hidden('login') !!}
 
@@ -84,11 +79,7 @@
                 </div>
             </div>
         @else
-
-
-
             @if($admin)
-
                 <div class="enter_area">
                     <div class="hello_label">
                         Администротор
@@ -111,12 +102,8 @@
                         </tr>
                         </tbody>
                     </table>
-
                 </div>
-
             @endif
-
         @endif
     </section>
-
 @endsection

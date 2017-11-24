@@ -7,10 +7,10 @@
 
             @include('common.menu_label')
 
-            <ul>
+            <ul class="category-list">
                 <li>
-                    <a href="sportmanships">
-                        Спортивные направления
+                    <a href="administrators">
+                        Администраторы
                     </a>
                 </li>
                 <li>
@@ -19,8 +19,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="administrators">
-                        Администраторы
+                    <a href="sportmanships">
+                        Спортивные направления
                     </a>
                 </li>
                 <li>

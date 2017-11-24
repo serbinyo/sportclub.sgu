@@ -61,7 +61,7 @@ class Administrator extends Model
 
     public function showAll()
     {
-        $entities = DB::table('administrators')->orderBy('id', 'desc')->paginate(5);
+        $entities = DB::table('administrators')->orderBy('id', 'desc')->paginate(10);
         return $entities;
     }
 

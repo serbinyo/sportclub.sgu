@@ -13,6 +13,8 @@ class AdministratorsController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * @param \App\Administrator $administratorModel
+     * @param \App\Gym $gymModel
      */
     public function index(Administrator $administratorModel, Gym $gymModel)
     {
@@ -36,6 +38,7 @@ class AdministratorsController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param \App\Administrator $administratorModel
+     * @param \App\Gym $gymModel
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Administrator $administratorModel, Gym $gymModel)
