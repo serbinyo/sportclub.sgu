@@ -38,12 +38,23 @@ class AdministratorsController extends Controller
      * @param \App\Administrator $administratorModel
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Administrator $administratorModel)
+    public function store(Request $request, Administrator $administratorModel, Gym $gymModel)
     {
+        $gyms = $gymModel->getGyms();
         $data = $request->except('_token');
         if (array_key_exists('entity_id', $data))
         {
             $response = $administratorModel->updateEntity($data['entity_id'], $data);
+
+
+            foreach ($gyms as $gym)
+            {
+
+                if($gym->id == $response['entity']['gym_id'])
+                {
+                    $response['entity']['gym'] = $gym->название;
+                }
+            }
             return Response::json($response);
         }
         else
@@ -58,8 +69,8 @@ class AdministratorsController extends Controller
             }
             else
             {
-                //$view_entity = view('one_article')->with('article', $response)->render();
-                return Response::json(['success'=>true, 'entity'=>'$view_entity']);
+                $view_one_entity = view('common.one_administrator',['entity' => $response, 'gyms' => $gyms])->render();
+                return Response::json(['success'=>true, 'entity'=>$view_one_entity]);
             }
         }
     }

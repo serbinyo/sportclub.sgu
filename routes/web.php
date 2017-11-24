@@ -32,3 +32,4 @@ Route::resource('sportmanships', 'SportmanshipsController');
 Route::resource('schedule', 'ScheduleController');
 
 Route::resource('visitlog', 'VisitlogController');
+

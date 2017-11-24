@@ -453,16 +453,19 @@ a.stad_photo:hover img {
   padding: 5px 0;
   text-align: center;
   border: 1px solid black;
-  border-radius: 11px;
-  background: cornflowerblue;
-  color: #000000;
+  border-radius: 3px;
+  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+
 }
 
 .entity_container .entity_col1 {
-  color: white;
+  color: rgb(68,68,68);
+  padding: 0 0 5px;
   font-weight: bold;
   font-size: large;
-  margin: 10px auto;
+  margin: 10px 30px;
+  -webkit-box-shadow: 0 -3px royalblue inset;
+  box-shadow: 0 -3px royalblue inset;
 }
 
 .entity_container .entity_col2 {
@@ -472,22 +475,17 @@ a.stad_photo:hover img {
 }
 
 .entity_container .entity_col3 {
+  width:45%;
+  float: left;
   margin-bottom: 1px;
-  padding: 10px 5px 10px 30px;
+  padding: 15px 5px 5px 30px;
   background: #F1F1F1;
   text-align: left;
 }
 
-.entity_container .comment_body {
-  margin-bottom: 1px;
-  padding: 10px 5px;
-  background: #F1F1F1;
-}
-
 .entity_container .entity_col4 {
   margin-bottom: 1px;
-  padding: 10px 5px;
-  background: #DEDEDE;
+  padding: 0px 5px 10px;
 }
 
 .entity_container .entity_link_container {

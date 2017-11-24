@@ -1,5 +1,6 @@
 jQuery(document).ready(function ($) {
-    var entityId = indexator($);
+    var entityId_array = indexator($);
+
 
     //обработчик для формы добавления НОВОЙ публикации
     $('#addform').on('click', '#addform-submit', function (e) {
@@ -26,11 +27,12 @@ jQuery(document).ready(function ($) {
                         }
                         else if (html.success) {
                             $('.wrap_result').css('color', 'blue').append('<br/><strong>Cохранено успешно</strong>').delay(900).fadeOut(500, function () {
-                                $('#articles').prepend(html.article);
+                                $('#entities').prepend(html.entity);
                                 $('input').off();
                                 $('.entity_update_link').off();
-                                $(entityId[entityId.length - 1]).remove();
-                                entityId = indexator($);
+                                $(entityId_array[entityId_array.length - 1]).remove();
+                                entityId_array = indexator($);
+
 
 
                             });
@@ -87,15 +89,23 @@ function editAjax(submitId, editFormId, editBoxId, $) {
                                     html['entity']['middlename']
                                 );
                                 $('#col2' + html['entity']['entity_id']).text(
+                                    'СНИЛС: ' +
                                     html['entity']['snils']
                                 );
                                 $('#col3' + html['entity']['entity_id']).text(
-                                    html['entity']['street'] + ' ' +
-                                    html['entity']['house'] + ' ' +
+                                    'Адрес: ул.' +
+                                    html['entity']['street'] + ', д.' +
+                                    html['entity']['house'] + ', ' +
                                     html['entity']['apartment']
                                 );
                                 $('#col4' + html['entity']['entity_id']).text(
+                                    'Номер телефона: ' +
                                     html['entity']['tel']
+                                );
+                                $('#col6' + html['entity']['entity_id']).html(
+                                    '<h4>Закреплен в спортзал: ' +
+                                    html['entity']['gym'] +
+                                    '</h4>'
                                 );
                             });
                         }

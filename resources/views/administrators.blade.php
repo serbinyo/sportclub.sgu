@@ -63,9 +63,9 @@
 
                     <div class='form-element'>
                         <select name='gym_id' class="inp" id="gym_id">
-                        @foreach($gyms as $gym)
+                            @foreach($gyms as $gym)
                                 <option value={{$gym->id}} >{{$gym->название}}</option>
-                        @endforeach
+                            @endforeach
                         </select>
                     </div>
 
@@ -149,9 +149,9 @@
 
 
 
+            <div id="entities">
+                @foreach($entities as $entity)
 
-            @foreach($entities as $entity)
-                <div id="entities">
 
                     <div class="entity_container" id="article{{$entity->id}}">
                         <div class='entity_col1' id='col1{{$entity->id}}'>
@@ -159,21 +159,34 @@
                             {{$entity->имя}}
                             {{$entity->отчество}}
                         </div>
-                        <div class='entity_col2' id='col2{{$entity->id}}'>
-                            {{$entity->снилс}}
+                        <div class='entity_col3' id='col2{{$entity->id}}'>
+                            СНИЛС: {{$entity->снилс}}
                         </div>
+
                         <div class='entity_col3' id='col3{{$entity->id}}'>
+                            Адрес:
                             ул.{!!$entity->улица!!},
                             д.{!!$entity->дом!!},
                             {!!$entity->квартира!!}
                         </div>
-
+                        <div style="clear: left"></div>
                         <div class='entity_col3' id='col4{{$entity->id}}'>
-                            {!!$entity->телефон!!}
+                            Номер телефона: {!!$entity->телефон!!}
                         </div>
-
-                        <div class='entity_col4' id='col5{{$entity->id}}'>{{$entity->дата_приема_на_работу}}</div>
-
+                        <div class='entity_col3' id='col5{{$entity->id}}'>
+                            Дата трудоустройства:
+                            {{$entity->дата_приема_на_работу}}
+                        </div>
+                        <div style="clear: left"></div>
+                        <div class='entity_col4' id='col6{{$entity->id}}'>
+                            <h4>Закреплен в спортзал:
+                            @foreach($gyms as $gym)
+                                @if($entity->id_спортзал == $gym->id)
+                                    {{$gym->название}}
+                                @endif
+                            @endforeach
+                            </h4>
+                        </div>
                         <div class='entity_link_container'>
                             <div class="entity_update_link" id="edit{{$entity->id}}" style="cursor:pointer">
                                 Редактировать
@@ -287,6 +300,18 @@
                         </div>
 
                         <div class='form-group'>
+                            {!! Form::label(null, 'Спортзал:',['class' =>'control-label']) !!}
+                            <div class='form-element'>
+                                <select name='gym_id' class="inp">
+                                    @foreach($gyms as $gym)
+                                        <option value={{$gym->id}} >{{$gym->название}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class='clr'></div>
+                        </div>
+
+                        <div class='form-group'>
                             {!! Form::label(null, '&nbsp;',['class' =>'control-label']) !!}
                             <div class='form-element'>
                                 {!! Form::submit('Отредактировать', ['class'=>'edit_submit', 'id' => "submit$entity->id"]) !!}
@@ -297,21 +322,22 @@
                         {!! Form::close() !!}
 
                     </div>
-                    @endforeach
-                </div>
-                {{$entities->links()}}
+
+                @endforeach
+            </div>
+            {{$entities->links()}}
 
 
-                @else
+        @else
 
-                    <div class="mainlable_area">
-                        Вы не вошли.
-                        <a href="/">
-                            На гравную
-                        </a>
-                    </div>
+            <div class="mainlable_area">
+                Вы не вошли.
+                <a href="/">
+                    На гравную
+                </a>
+            </div>
 
-                @endif
+        @endif
     </section>
 
 @endsection

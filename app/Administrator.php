@@ -67,7 +67,7 @@ class Administrator extends Model
 
     public function updateEntity($id, $data)
     {
-        if ($err = $this->validateNewEntity($data)) {
+        if ($err = $this->validateEntity($data)) {
             return $err;
         }
         $entity = self::find($id);
@@ -79,6 +79,7 @@ class Administrator extends Model
         $entity->дом = $data['house'];
         $entity->квартира = $data['apartment'];
         $entity->телефон = $data['tel'];
+        $entity->id_спортзал = $data['gym_id'];
 
         $entity->save();
 
@@ -87,7 +88,7 @@ class Administrator extends Model
 
     public function saveEntity($data)
     {
-        if ($err = $this->validateNewEntity($data)) {
+        if ($err = $this->validateEntity($data)) {
             return $err;
         }
 
@@ -106,7 +107,7 @@ class Administrator extends Model
         return $this;
     }
 
-    public function validateNewEntity($data)
+    public function validateEntity($data)
     {
         $validator = Validator::make($data,
             [
