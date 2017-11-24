@@ -57,15 +57,18 @@
                 </div>
 
                 <div class='form-group'>
-                    {!! Form::label(null, 'Номер спортзала:',
+                    {!! Form::label(null, 'Спортзал:',
                     ['class' =>'control-label']) !!}
 
+
                     <div class='form-element'>
-                        {!! Form::text('gym_id', null,
-                        ['class'=>'inp',
-                        'id'=>"middlename",
-                        'title'=>'Обязательно к заполнению']) !!}
+                        <select name='gym_id' class="inp" id="gym_id">
+                        @foreach($gyms as $gym)
+                                <option value={{$gym->id}} >{{$gym->название}}</option>
+                        @endforeach
+                        </select>
                     </div>
+
 
                     <div class='clr'></div>
                 </div>

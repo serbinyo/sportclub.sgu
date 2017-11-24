@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Administrator;
+use App\Gym;
 use Response;
 
 class AdministratorsController extends Controller
@@ -13,10 +14,11 @@ class AdministratorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Administrator $administratorModel)
+    public function index(Administrator $administratorModel, Gym $gymModel)
     {
         $entities = $administratorModel->showAll();
-        return view('administrators', ['admin' => $this->admin, 'entities' => $entities]);
+        $gyms = $gymModel->getGyms();
+        return view('administrators', ['admin' => $this->admin, 'entities' => $entities, 'gyms' => $gyms]);
     }
 
     /**
