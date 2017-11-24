@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
-    addJQueryHandler('#btn_open_add_entity', '#hiding_block_add_entity', $);
+
     var entityId_array = indexator($);
+    addJQueryHandler('#btn_open_add_entity', '#hiding_block_add_entity', $);
 
 
     //обработчик для формы добавления НОВОЙ публикации
@@ -30,11 +31,11 @@ jQuery(document).ready(function ($) {
                             $('.wrap_result').css('color', 'blue').append('<br/><strong>Cохранено успешно</strong>').delay(900).fadeOut(500, function () {
                                 $('#entities').prepend(html.entity);
                                 $('input').off();
-                                $('.entity_update_link').off();
+                                $('div').off();
                                 $(entityId_array[entityId_array.length - 1]).remove();
                                 entityId_array = indexator($);
-
-
+                                addJQueryHandler('#btn_open_add_entity', '#hiding_block_add_entity', $);
+                                $('#hiding_block_add_entity').css('display', 'none');
                             });
                         }
                     },
@@ -64,7 +65,7 @@ function editAjax(submitId, editFormId, editBoxId, $) {
         $('.wrap_result').css('color', 'green').text('Редактирование публикации').fadeIn(500, function () {
             //плавно показываем блок(500мс), затем выполняем функцию
 
-            data = $(editFormId).serializeArray();
+            var data = $(editFormId).serializeArray();
 
             $.ajax(
                 {
@@ -126,7 +127,7 @@ function editAjax(submitId, editFormId, editBoxId, $) {
 function indexator($) {
     var hiding_block = document.getElementsByClassName('hiding_block'),
         btn_open = document.getElementsByClassName('btn_open'),
-        editform = document.getElementsByClassName('edit_form'),
+        edit_form = document.getElementsByClassName('edit_form'),
         submit = document.getElementsByClassName('edit_submit'),
         entity_cont = document.getElementsByClassName('entity_container'),
         card_title_open = document.getElementsByClassName('card_title_open'),
@@ -139,7 +140,7 @@ function indexator($) {
         card_title_openId = [],
         card_body_blockId = [];
 
-    for (i = 0; i < btn_open.length; i++) {
+    for (var i = 0; i < entity_cont.length; i++) {
 
         var entityId_tmp = entity_cont[i].id;
         entityId[i] = "#" + entityId_tmp;
@@ -150,8 +151,8 @@ function indexator($) {
         var hiding_block_tmp = hiding_block[i].id;
         editBoxId[i] = "#" + hiding_block_tmp;
 
-        var editformId_tmp = editform[i].id;
-        editFormId[i] = "#" + editformId_tmp;
+        var editFormId_tmp = edit_form[i].id;
+        editFormId[i] = "#" + editFormId_tmp;
 
         var submitId_tmp = submit[i].id;
         submitId[i] = "#" + submitId_tmp;
