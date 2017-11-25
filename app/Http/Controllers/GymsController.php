@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Gym;
 
 class GymsController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param \App\Gym $gymModel
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Gym $gymModel)
     {
-        return view('gyms', ['admin' => $this->admin]);
+        $gyms = $gymModel->showAll();
+        return view('gyms', ['admin' => $this->admin, 'gyms' => $gyms]);
     }
 
     /**

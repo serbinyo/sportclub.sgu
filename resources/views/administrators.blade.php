@@ -69,7 +69,9 @@
                         <div class='form-element'>
                             <select name='gym_id' class="inp" id="gym_id">
                                 @foreach($gyms as $gym)
-                                    <option value={{$gym->id}} >{{$gym->название}}</option>
+                                    <option value={{$gym->id}}>
+                                        {{$gym->название}}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>

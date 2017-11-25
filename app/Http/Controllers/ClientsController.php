@@ -3,17 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Client;
 
 class ClientsController extends Controller
 {
+
+    private $found_client = '';
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Client $clientModel)
     {
-        return view('clients', ['admin' => $this->admin]);
+        $clients = $clientModel->showAll();
+        return view('clients', ['admin' => $this->admin, 'clients' => $clients, 'found_client' => $this->found_client]);
     }
 
     /**
@@ -32,9 +37,15 @@ class ClientsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Client $clientModel)
     {
-        //
+        $data = $request->all();
+
+        if(array_key_exists('lastname', $data)){
+            $this->found_clients = $clientModel->showClient($request);
+        }
+        $clients = $clientModel->showAll();
+        return view('clients', ['admin' => $this->admin, 'clients' => $clients, 'found_clients' => $this->found_clients]);
     }
 
     /**

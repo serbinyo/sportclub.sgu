@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sportsmanship;
 
 class SportmanshipsController extends Controller
 {
@@ -11,9 +12,10 @@ class SportmanshipsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Sportsmanship $sportsmanshipModel)
     {
-        return view('sportmanships', ['admin' => $this->admin]);
+        $sportsmanships = $sportsmanshipModel->showAll();
+        return view('sportsmanships', ['admin' => $this->admin, 'sportsmanships' => $sportsmanships]);
     }
 
     /**

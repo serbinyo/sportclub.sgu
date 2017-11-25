@@ -9,27 +9,30 @@
 			<table class="table-view">
 				<tr class="topic">
 					<td>Название</td>
-					<td>Адрес</td>
-					<td>Телефон</td>
-					<td>Ставка администратора</td>
+					<td>Описание</td>
+					<td>Стоимость занятия</td>
+					<td>Ставка тренера</td>
 				</tr>
-				@foreach($gyms as $gym)
+				@foreach($sportsmanships as $sportsmanship)
 
 					<tr>
-						<td>{{$gym->название}}</td>
 						<td>
-							{{$gym->улица}}
-							{{$gym->дом}}
+							{{$sportsmanship->название}}
 						</td>
-						<td>{{$gym->телефон}}</td>
 						<td>
-							{{$gym->ставка_администратора}}
+							{{$sportsmanship->описание}}
+						</td>
+						<td>
+							{{$sportsmanship->стоимость}}
+						</td>
+						<td>
+							{{$sportsmanship->ставка_тренера}}
 						</td>
 					</tr>
 
 				@endforeach
 			</table>
-			{{$gyms->links()}}
+			{{$sportsmanships->links()}}
 
 		@else
 

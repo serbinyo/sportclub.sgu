@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Discount;
 
 class DiscountsController extends Controller
 {
@@ -11,9 +12,10 @@ class DiscountsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Discount $discountModel)
     {
-        return view('discounts', ['admin' => $this->admin]);
+        $discounts = $discountModel->showAll();
+        return view('discounts', ['admin' => $this->admin, 'discounts' => $discounts]);
     }
 
     /**

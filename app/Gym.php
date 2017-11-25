@@ -11,4 +11,10 @@ class Gym extends Model
     {
         return DB::table('gyms')->get();
     }
+
+    public function showAll()
+    {
+        $entities = DB::table('gyms')->orderBy('id')->paginate(10);
+        return $entities;
+    }
 }

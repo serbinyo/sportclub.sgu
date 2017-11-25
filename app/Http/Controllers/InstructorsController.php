@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Instructor;
 
 class InstructorsController extends Controller
 {
@@ -11,9 +12,10 @@ class InstructorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Instructor $instructorModel)
     {
-        return view('instructors', ['admin' => $this->admin]);
+        $instructors = $instructorModel->showAll();
+        return view('instructors', ['admin' => $this->admin, 'instructors' => $instructors]);
     }
 
     /**
