@@ -23,8 +23,8 @@ DROP TABLE IF EXISTS `administrators`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `administrators` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_спортзал` int(11) NOT NULL,
+  `id_aдминистратор` int(11) NOT NULL AUTO_INCREMENT,
+  `Спортзал_id_спортзал` int(11) NOT NULL,
   `фамилия` varchar(100) DEFAULT NULL,
   `имя` varchar(100) DEFAULT NULL,
   `отчество` varchar(100) DEFAULT NULL,
@@ -36,10 +36,10 @@ CREATE TABLE `administrators` (
   `login` varchar(45) DEFAULT NULL,
   `pswd` varchar(45) DEFAULT NULL,
   `дата_приема_на_работу` date NOT NULL,
-  PRIMARY KEY (`id`,`id_спортзал`),
-  KEY `fk_Администратор_Спортзал1_idx` (`id_спортзал`),
-  CONSTRAINT `fk_Администратор_Спортзал1` FOREIGN KEY (`id_спортзал`) REFERENCES `gyms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_aдминистратор`,`Спортзал_id_спортзал`),
+  KEY `fk_Администратор_Спортзал1_idx` (`Спортзал_id_спортзал`),
+  CONSTRAINT `fk_Администратор_Спортзал1` FOREIGN KEY (`Спортзал_id_спортзал`) REFERENCES `gyms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,6 +57,8 @@ CREATE TABLE `clients` (
   `отчество` varchar(100) DEFAULT NULL,
   `телефон` varchar(15) DEFAULT NULL,
   `баланс_счета` decimal(10,2) DEFAULT NULL,
+  `login` varchar(45) DEFAULT NULL,
+  `pswd` varchar(45) DEFAULT NULL,
   `дата_вступления` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_Клиент_Скидка1_idx` (`стаж_клиента`),
@@ -115,6 +117,8 @@ CREATE TABLE `instructors` (
   `квартира` varchar(10) DEFAULT NULL,
   `телефон` varchar(15) DEFAULT NULL,
   `квалификация` varchar(100) DEFAULT NULL COMMENT 'В этом поле указывается диптом тренели и.иили спортивный разряд',
+  `login` varchar(45) DEFAULT NULL,
+  `pswd` varchar(45) DEFAULT NULL,
   `дата_приема_на_работу` date NOT NULL,
   PRIMARY KEY (`id`,`sportsmanship_id`),
   KEY `fk_Тренер_Спортивное направление_idx` (`sportsmanship_id`),
@@ -288,4 +292,4 @@ CREATE TABLE `visitation_gyms` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-25  2:59:33
+-- Dump completed on 2017-11-23 18:39:19
