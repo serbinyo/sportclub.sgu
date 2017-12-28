@@ -1,0 +1,18 @@
+﻿Приложение для базы данных. 
+
+Требования к серверу:
+
+Версия PHP >= 7.0
+Версия MySQL >= 5.7 (Внимание. на 5.6 не будут работать таблицы расписаний и журнал посещений.)
+
+
+дампы БД лежат в: sportclub.sgu\resources\assets\dumps
+
+
+отчет КП лежит в: sportclub.sgu\resources\assets\report
+
+
+ссылка на репозиторий: https://github.com/serbinyo/sportclub.sgu
+
+
+Сербин А.А ИС-41з 2017

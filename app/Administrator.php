@@ -92,7 +92,6 @@ class Administrator extends Model
             return $err;
         }
 
-        //$this->fill($data);
         $this->id_спортзал = $data['gym_id'];
         $this->фамилия = $data['lastname'];
         $this->имя = $data['firstname'];
