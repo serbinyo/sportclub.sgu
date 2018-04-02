@@ -8,7 +8,7 @@ use App\Client;
 class ClientsController extends Controller
 {
 
-    private $found_client = '';
+    private $found_clients = '';
 
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class ClientsController extends Controller
     public function index(Client $clientModel)
     {
         $clients = $clientModel->showAll();
-        return view('clients', ['admin' => $this->admin, 'clients' => $clients, 'found_client' => $this->found_client]);
+        return view('clients', ['admin' => $this->admin, 'clients' => $clients, 'found_clients' => $this->found_clients]);
     }
 
     /**
@@ -34,15 +34,19 @@ class ClientsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Client $clientModel)
     {
         $data = $request->all();
 
-        if(array_key_exists('lastname', $data)){
-            $this->found_clients = $clientModel->showClient($request);
+        if (array_key_exists('lastname', $data)) {
+            $response = $clientModel->showClient($data);
+            if (is_array($response) && array_key_exists('errors', $response)) {
+                return back()->withInput()->withErrors($response['errors']);
+            }
+            $this->found_clients = $response;
         }
         $clients = $clientModel->showAll();
         return view('clients', ['admin' => $this->admin, 'clients' => $clients, 'found_clients' => $this->found_clients]);
@@ -51,7 +55,7 @@ class ClientsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -62,7 +66,7 @@ class ClientsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -73,8 +77,8 @@ class ClientsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -85,7 +89,7 @@ class ClientsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -16,7 +16,10 @@ class IndexController extends Controller
     {
         $data = $request->all();
         if (array_key_exists('login', $data)) {
-            $adminModel->login($request);
+            $response = $adminModel->login($data);
+            if (is_array($response) && array_key_exists('errors', $response)) {
+                return back()->withInput()->withErrors($response['errors']);
+            }
             return redirect('menu');
         } else {
             session_destroy();

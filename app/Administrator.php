@@ -32,12 +32,12 @@ class Administrator extends Model
         }
     }
 
-    public function login($request)
+    public function login($data)
     {
-        if (!empty($request['passwd'])) {
-            $request['passwd'] = md5($request['passwd']);
+        if (!empty($data['passwd'])) {
+            $data['passwd'] = md5($data['passwd']);
         }
-        $this->validate($request,
+        $validator = Validator::make($data,
             [
                 'login' => [
                     'required',
@@ -54,7 +54,9 @@ class Administrator extends Model
                 'passwd.required' => 'Необходимо указать пароль',
                 'passwd.exists' => 'Неверный пароль, попробуйте еще раз'
             ]);
-        $data = $request->all();
+        if ($validator->fails()) {
+            return ['errors' => $validator->errors()];
+        }
         $_SESSION['login'] = $data['login'];
         $_SESSION['passwd'] = $data['passwd'];
     }
